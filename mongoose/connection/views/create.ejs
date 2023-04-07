@@ -1,0 +1,29 @@
+<%- include('partials/header') -%>
+<h1>Enter The Details Of Employee:</h1>
+<form action="/emp" method="post">
+    <label >EmpName:</label>
+    <input type="text" name="empName" id="">
+    <label >Role:</label>
+    <input type="text" name="empRole" id="">
+    <label >Experience:</label>
+    <input type="text" name="empExp" id="">
+    <br>
+    <br>
+    <input type="submit" name="" id="">
+</form>
+<br>
+<br>
+<form action="/update1" method="post">
+    <button type="submit" name="nameUp">update Name</button>
+    <button type="submit" name="roleUp">update Role</button>
+    <button type="submit" name="expUp">update Experience</button>
+</form>
+<br>
+<form action="/">
+    <input type="submit" value="Get Employee Details" name=""></input>
+</form>
+<br>
+<form action="/delete">
+    <input type="submit" value="Delete Employee Details" name="empName"></input>
+</form>
+<%- include('partials/footer') -%>
