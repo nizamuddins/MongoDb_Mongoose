@@ -41,7 +41,7 @@ app.post("/update",async(req,res)=>{
     let r = req.body;
     let k = Object.keys(req.body);
 
-    if(k.length == 0){
+    if(k.length == 1){
         let data1 = await data();
         let data2 = await data1.updateOne({'empName':r[k[0]][0]},{$set:{'empName':r[k[0]][1]}});
         res.redirect('/');
@@ -60,7 +60,6 @@ app.post("/update",async(req,res)=>{
 app.get("/delete",async(req,res)=>{
     res.render("delete")
 })
-
 app.post('/delete',async(req,res)=>{
     let data1 = await data();
     let data2 = await data1.deleteOne({"empName":req.body.empName});

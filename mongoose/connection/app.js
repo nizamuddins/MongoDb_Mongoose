@@ -37,8 +37,7 @@ app.post("/update1",(req,res)=>{
 app.post("/update",async(req,res)=>{
     let r = req.body;
     let k = Object.keys(req.body);
-console.log(r)
-    if(k.length == 0){
+    if(k.length == 1){
         let data2 = await User.updateOne({'empName':r[k[0]][0]},{$set:{'empName':r[k[0]][1]}});
         res.redirect('/');
     }else if(k[1]=='empRole'){
@@ -56,10 +55,10 @@ app.get("/delete",async(req,res)=>{
 })
 
 app.post('/delete',async(req,res)=>{
-    let data1 = await data();
-    let data2 = await data1.deleteOne({"empName":req.body.empName});
+    let data2 = await User.deleteOne({"empName":req.body.empName});
     res.redirect('/');
 })
+
 app.listen(process.env.PORT||7000,()=>{
     console.log("Server is activated")
 });
